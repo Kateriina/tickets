@@ -6,6 +6,20 @@ class TicketStoragePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FlutterLogo();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Хранение билетов'),
+      ),
+      body: const Center(
+        child: Text(
+          'Здесь пока ничего нет',
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => {},
+        label: const Text('Добавить'),
+      ),
+    );
   }
 }
