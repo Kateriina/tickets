@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-/// Экран “Хранения билетов”.
 class TicketStoragePage extends StatelessWidget {
   const TicketStoragePage({Key? key}) : super(key: key);
 
@@ -10,15 +10,36 @@ class TicketStoragePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Хранение билетов'),
       ),
-      body: const Center(
-        child: Text(
-          'Здесь пока ничего нет',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+      body: SlidingUpPanel(
+        panel: Center(
+          child: Text(
+            'Здесь пока ничего нет',
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => {},
-        label: const Text('Добавить'),
+        collapsed: const Center(
+          child: Text(
+            'Панель скрыта',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        minHeight: 100,
+        maxHeight: 500,
+        body: Column(
+          children: [
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Введите url',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Добавить'),
+            )
+          ],
+        ),
       ),
     );
   }
